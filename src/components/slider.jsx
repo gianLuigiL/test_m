@@ -47,7 +47,9 @@ export default class Slider extends React.Component {
         return Math.ceil(this.all_items() / this.page_size());
     }
 
-    change_index(variant){
+    change_index(variant, e){
+        e.preventDefault();
+
         let new_index;
         if(variant === "increase") {
             new_index = this.next_index();
@@ -66,6 +68,7 @@ export default class Slider extends React.Component {
             const displayed_items = this.state.all_items.slice(0,this.state.items_per_page);
             this.setState({displayed_items, index: new_index})
         }
+        return false;
     }
 
     get_items(){
@@ -175,8 +178,12 @@ export default class Slider extends React.Component {
                     {cards}
                 </ReactCSSTransitionGroup>
                 <div className="arrows">
-                    <span className="left_arrow" onClick={() => this.change_index("decrease")}></span>
-                    <span className="right_arrow" onClick={() => this.change_index("increase")}></span>
+                    <a href="/" className="left_arrow" onClick={(e) => this.change_index("decrease", e)} tabIndex="0">
+                        <span style={{display: "none"}}>Load next cards</span>
+                    </a>
+                    <a href="/" className="right_arrow" onClick={(e) => this.change_index("increase", e)} tabIndex="0">
+                        <span style={{display: "none"}}>Load Next Cards</span>
+                    </a>
                 </div>
             </div>
         )
