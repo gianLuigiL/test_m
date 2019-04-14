@@ -1,0 +1,101 @@
+@keyframes GreyLoad { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+a {
+    color: initial;
+    text-decoration: none;
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
+
+    &.example-enter {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    &.example-enter.example-enter-active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+
+    div.card {
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        max-width: 308px;
+        height: 380px;
+        margin: 26px 13px;
+        background: white;
+
+
+        &:first-of-type {
+            margin-left: 26px;
+        }
+        &:last-of-type {
+            margin-right: 26px;
+        }
+
+        > img {
+            flex: 1 0 150px;
+            height: 150px;
+            width: 308px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: linear-gradient(270deg, #fdffff, #ced0cf, #929292, #707070, #ffffff, #ced0cf);
+            background-size: 1200% 1200%;
+            animation: GreyLoad 8s ease infinite;
+            opacity: 1;
+            transition: height 1s, width 1s, opacity 0.2s;
+        }
+
+        &.loaded::after {
+            height: 0%;
+            width: 0%;
+            background: linear-gradient(270deg, #fdffff, #ced0cf, #929292, #707070, #ffffff, #ced0cf);
+            background-size: 1200% 1200%;
+            animation: GreyLoad 8s ease infinite;
+            opacity: 0;
+        }
+
+        span.like {
+            flex: 0 0 15px;
+            position: relative;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+
+            &.liked {
+                .st0 {
+                    fill: green;
+                }
+            }
+
+            > * {
+                width: 20px;
+                position: absolute;
+            }
+        }
+
+        .st0 {
+            fill: transparent;
+            stroke: green;
+            transition: fill 0.5s;
+        }
+    }
+}

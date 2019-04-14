@@ -1,0 +1,57 @@
+div.slider {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: rgb(246,246,246);
+    max-width: 100%;
+    overflow: hidden;
+
+    div.items {
+        display: flex;
+        justify-content: flex-start;
+        transition: none;
+
+        &.shifting {
+        transition: transform 0.5s;
+        }
+    }
+    div.arrows {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left_arrow, .right_arrow {
+            position: relative; 
+            margin: 13px;
+            height: 30px;
+            width: 10px;
+            cursor: pointer;
+
+            &::before, &::after{
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 18px;
+                background: #2a8631;
+            }
+        }
+
+        .left_arrow::before {
+            transform: rotate(45deg);
+        }
+        .left_arrow::after {
+            transform: rotate(-45deg);
+            top: 10px;
+        }
+        .right_arrow::before {
+            transform: rotate(-45deg);
+        }
+        .right_arrow::after {
+            transform: rotate(45deg);
+            top: 10px;
+        }
+    }
+}
