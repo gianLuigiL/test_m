@@ -1,6 +1,8 @@
+//Dependencies
 import React from 'react'
 //Styles
 import "./scss/card.scss";
+//Components
 import Paragraph from './paragraph';
 
 export default class Card extends React.Component {
