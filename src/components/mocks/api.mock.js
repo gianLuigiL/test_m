@@ -16,7 +16,7 @@ const data = {
         "text": "We insist on working collaborativelly. <strong>No rockstars</strong>. No departments. The whole owns the whole project together.",
         "image_url": "https://picsum.photos/300/150/?random",
         "href": "https://mindera.com/people-and-culture/we-work-together/",
-        "is_liked": true
+        "is_liked": false
       },
       {
         "id": 3,
@@ -41,7 +41,7 @@ const data = {
         "text": "You’re given an incredible amount of freedom and autonomy at Mindera. That goes for everyone.",
         "image_url": "https://picsum.photos/300/150/?random",
         "href": "https://mindera.com/people-and-culture/faq/",
-        "is_liked": true
+        "is_liked": false
       },
       {
         "id": 6,
@@ -49,7 +49,7 @@ const data = {
         "text": "Our flat structure calls for it by necessity. Being a leader may feel unnatural at first, but we expect everyone to step up and own part of the project.",
         "image_url": "https://picsum.photos/300/150/?random",
         "href": "https://mindera.com/people-and-culture/faq/",
-        "is_liked": true
+        "is_liked": false
       },
       {
         "id": 7,
@@ -67,16 +67,16 @@ const data = {
         "text": "Humans are unique. Do you love Portugueses Pop Music (<em>Pimba</em>)? Do you prefer your desk covered with sunflowers? There’s no need to hide it. Be yourself. That’s how you’ll fit in here.",
         "image_url": "https://picsum.photos/300/150/?random",
         "href": "https://mindera.com/people-and-culture/faq/",
-        "is_liked": true
+        "is_liked": false
       },
       {
         "id": 9,
         "title": "Humans are not \"resources\"",
         "subtitle": "Humans are humans",
-        "text": "We don’t have an HR department. New hires are interviewed by the people who will be working with them. So get ready to care a lot about the people you work with.We don’t have an HR department. New hires are interviewed by the people who will be working with them. So get ready to care a lot about the people you work with.",
+        "text": "We don’t have an HR department. New hires are interviewed by the people who will be working with them. So get ready to care a lot about the people you work with.",
         "image_url": "https://picsum.photos/300/150/?random",
         "href": "https://mindera.com/people-and-culture/faq/",
-        "is_liked": true
+        "is_liked": false
       }
     ]
   };
