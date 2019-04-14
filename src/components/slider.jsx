@@ -25,6 +25,7 @@ export default class Slider extends React.Component {
 
         this.slider = React.createRef();
 
+        this.accessible_change = this.accessible_change.bind(this);
         this.all_items = this.all_items.bind(this);
         this.all_pages = this.all_pages.bind(this);
         this.change_index = this.change_index.bind(this);
@@ -38,6 +39,12 @@ export default class Slider extends React.Component {
         this.set_resize_listener = this.set_resize_listener.bind(this);
     }
 
+    accessible_change(variant, e) {
+        if(e.charCode === 32) {
+            this.change_index(variant);
+        }
+    }
+
 
     all_items(){
         return this.state.all_items.length;
@@ -47,9 +54,7 @@ export default class Slider extends React.Component {
         return Math.ceil(this.all_items() / this.page_size());
     }
 
-    change_index(variant, e){
-        e.preventDefault();
-
+    change_index(variant){
         let new_index;
         if(variant === "increase") {
             new_index = this.next_index();
@@ -68,7 +73,6 @@ export default class Slider extends React.Component {
             const displayed_items = this.state.all_items.slice(0,this.state.items_per_page);
             this.setState({displayed_items, index: new_index})
         }
-        return false;
     }
 
     get_items(){
@@ -178,12 +182,12 @@ export default class Slider extends React.Component {
                     {cards}
                 </ReactCSSTransitionGroup>
                 <div className="arrows">
-                    <a href="/" className="left_arrow" onClick={(e) => this.change_index("decrease", e)} tabIndex="0">
+                    <span className="left_arrow" onClick={(e) => this.change_index("decrease", e)} onKeyPress={(e) => this.accessible_change("decrease", e)}tabIndex="0">
                         <span style={{display: "none"}}>Load next cards</span>
-                    </a>
-                    <a href="/" className="right_arrow" onClick={(e) => this.change_index("increase", e)} tabIndex="0">
+                    </span>
+                    <span className="right_arrow" onClick={ () => this.change_index("increase")} onKeyPress={(e) => this.accessible_change("increase", e)}tabIndex="0">
                         <span style={{display: "none"}}>Load Next Cards</span>
-                    </a>
+                    </span>
                 </div>
             </div>
         )
